@@ -1,101 +1,117 @@
-# All-my-launcher-UI-s-for-ogfn
-Launcher 1 - 
-DISCLAIMER THIS IS JUST UI, IF YOU CHOOSE TO USE THIS YOU WILL NEED TO CODE THE FUNCTIONS URSELF
+#  All My Launcher UIs for OGFN
 
-Whats Inside? -- A index.html file coded by me for a prototype ogfn launcher
+A collection of **custom OGFN launcher UIs** I’ve made over time.
 
+>  **DISCLAIMER:** These are **UI-only projects**.  
+> If you choose to use them, you will need to **code the backend/functions yourself**.
 
+---
 
-Whats it has:
-Working username
-Working Themes
-UI
+##  Launcher 1
 
-Galaxy Launcher - 
-this is a launcher i coded ages ago, it has no function but this rlly cool galaxy loading animation
+###  What’s inside:
+- `index.html` prototype launcher UI (made by me)
 
+###  Features:
+- Working username display  
+- Theme support  
+- Clean UI design  
 
+---
 
-DISCLAIMER THIS IS JUST UI, IF YOU CHOOSE TO USE THIS YOU WILL NEED TO CODE THE FUNCTIONS URSELF
+##  Galaxy Launcher
 
-Whats Inside? -- A index.html file coded by me for a prototype ogfn launcher
+A launcher I made a while ago featuring a **galaxy-style loading animation**.
 
+>  UI ONLY — no backend included
 
+### 📦 What’s inside:
+- `index.html` prototype launcher UI  
 
-Whats it has:
-Working username
-Working Themes
-Really cool loading animation
-discord join our server
-UI
+###  Features:
+- Working username display  
+- Theme support  
+- Galaxy loading animation  
+- Discord join button  
+- Clean UI layout  
 
-Matrix DVD Launcher 
-this is a modded version of the ⁠galaxy launcher, btw it has no function but this rlly cool galaxy loading animation, and dvd bouncing around around animations and cool matrix text effect!
+---
 
+##  Matrix DVD Launcher
 
-DISCLAIMER THIS IS JUST UI, IF YOU CHOOSE TO USE THIS YOU WILL NEED TO CODE THE FUNCTIONS URSELF
+A **modded version of Galaxy Launcher** with extra visual effects.
 
-Whats Inside? -- A index.html file coded by me for a prototype ogfn launcher
-a style.css file that jus has some effects
+> ⚠️ UI ONLY
 
+###  What’s inside:
+- `index.html`
+- `style.css` (visual effects)
 
+###  Features:
+- Working username display  
+- Theme support  
+- Galaxy loading animation  
+- Matrix text effect  
+- DVD bouncing animation  
+- Enhanced UI design  
 
-Whats it has:
-Working username
-Working Themes
-Really cool loading animation
-discord join our server
-cool matrix effect
-cool dvd bouncing around effect
-UI
+---
 
-lofi rain launcher - 
-this basically just the⁠ Matrix DVD Launcher but with rain effect and lofi beats, btw it has no function but this rlly cool galaxy loading animation, and dvd bouncing around around animations and cool matrix text effect!
+##  Lofi Rain Launcher
 
+Based on Matrix DVD Launcher, but upgraded with **rain + lofi vibe**.
 
-DISCLAIMER THIS IS JUST UI, IF YOU CHOOSE TO USE THIS YOU WILL NEED TO CODE THE FUNCTIONS URSELF
+>  UI ONLY — backend not included  
+>  You MUST add your own MP3 files
 
-Whats Inside? -- A index.html file coded by me for a prototype ogfn launcher
-a style.css file that jus has some effects
-3 mp3 files for the audio in the launcher
+###  What’s inside:
+- `index.html`
+- `style.css`
+- 3x MP3 audio files (YOU MUST ADD THESE)
 
+###  Features:
+- Working username display  
+- Theme support  
+- Matrix effect  
+- DVD bouncing animation  
+- Rain effect  
+- Pulsing red effect  
+- Ocean wave effect  
+- Lofi background audio support  
+- Discord join button  
+- Full immersive UI  
 
+---
 
-Whats it has:
-Working username
-Working Themes
-Really cool loading animation
-discord join our server
-cool matrix effect
-cool dvd bouncing around effect
-cool rain effect
-cool pulsing red effect
-cool ocean wave effect
-Ui
+##  Rain Launcher V2
 
-YOU NEED TO ADD THE MP3 FILES BTW!! 
+An upgraded version of the Lofi Rain Launcher with improved visuals.
 
-Rain Launcher v2 - 
-this basically just⁠ lofi rain launcher but i made the rain 10x better looking, btw it has no function but this rlly cool galaxy loading animation, and dvd bouncing around around animations and cool matrix text effect!
+>  UI ONLY — backend not included  
+>  Requires MP3 files
 
+###  What’s inside:
+- `index.html`
+- `style.css`
+- 3x MP3 audio files (must be added manually)
 
-DISCLAIMER THIS IS JUST UI, IF YOU CHOOSE TO USE THIS YOU WILL NEED TO CODE THE FUNCTIONS URSELF
+###  Features:
+- Working username display  
+- Theme support  
+- Improved rain effects  
+- Matrix effect  
+- DVD bouncing animation  
+- Pulsing red glow effect  
+- Ocean wave animation  
+- Better overall UI polish  
 
-Whats Inside? -- A index.html file coded by me for a prototype ogfn launcher
-a style.css file that jus has some effects
-3 mp3 files for the audio in the launcher
+---
 
-Whats it has:
-Working username
-Working Themes
-Really cool loading animation
-discord join our server
-cool matrix effect
-cool dvd bouncing around effect
-cool rain effect
-cool pulsing red effect
-cool ocean wave effect
-Ui
+## ⚠️ Notes
 
+- These are **front-end only prototypes**
+- No backend systems are included
+- All functionality must be coded separately
+- Some versions require **manual audio setup (MP3 files)**
 
-
+---
