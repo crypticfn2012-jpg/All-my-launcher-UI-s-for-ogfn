@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OGFN Launcher</title>
+
+<style>
+:root {
+    --primary: #7b4dff;
+    --secondary: #5a2eff;
+    --bg-dark: #0f0f1a;
+    --card-bg: rgba(255,255,255,0.05);
+    --text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, var(--primary), var(--bg-dark));
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+#loadingScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.stars {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: zoomGalaxy 5s linear forwards;
+}
+
+@keyframes zoomGalaxy {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(3); opacity: 0; }
+}
+
+.loadingText {
+    font-size: 28px;
+    z-index: 2;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+
+#app {
+    display: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Nav */
+.topbar {
+    height: 70px;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-links button {
+    background: none;
+    border: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-links button:hover {
+    color: var(--primary);
+}
+
+
+.main {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 20px;
+    backdrop-filter: blur(15px);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+.section { display: none; }
+.active { display: block; }
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.theme-card {
+    height: 70px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.theme-card:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<!-- Galaxy Loading -->
+<div id="loadingScreen">
+    <div class="stars"></div>
+    <div class="loadingText">Entering Launcher...</div>
+</div>
+
+
+<div id="app">
+
+    <div class="topbar">
+        <h2>OGFN</h2>
+        <div class="nav-links">
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('library')">Library</button>
+            <button onclick="showSection('settings')">Settings</button>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <!-- HOME -->
+        <div id="home" class="section active">
+            <h1 id="welcomeText">Hey, Player</h1>
+
+            <div class="card">
+                <h3>Launcher News</h3>
+                <p>OGFN UI Loaded Successfully </p>
+            </div>
+            <!-- put ur dc link here -->
+            <div class="card">
+                <h3>Join Our Discord</h3>
+                <input type="text" id="discordLink" placeholder="Paste Discord Invite Link"> 
+                <button class="btn" onclick="joinDiscord()">Join Discord</button>
+            </div>
+        </div>
+
+        
+        <div id="library" class="section">
+            <h1>Your Library</h1>
+            <div class="card">
+                <h3>Fortnite 27.11</h3>
+                <button class="btn">Launch</button>
+            </div>
+        </div>
+
+        
+        <div id="settings" class="section">
+            <h1>Settings</h1>
+
+            <div class="card">
+                <h3>Change Username</h3>
+                <input type="text" id="usernameInput" placeholder="Enter username">
+                <button class="btn" onclick="updateUsername()">Save</button>
+            </div>
+
+            <div class="card">
+                <h3>Theme Presets</h3>
+                <div class="theme-grid">
+                    <div class="theme-card" style="background:linear-gradient(135deg,#7b4dff,#5a2eff)" onclick="setTheme('#7b4dff')"></div>
+                    <div class="theme-card" style="background:linear-gradient(135deg,#00c6ff,#0072ff)" onclick="setTheme('#00c6ff')"></div>
+                    <div class="theme-card" style="background:linear-gradient(135deg,#ff416c,#ff4b2b)" onclick="setTheme('#ff416c')"></div>
+                    <div class="theme-card" style="background:linear-gradient(135deg,#00b09b,#96c93d)" onclick="setTheme('#00b09b')"></div>
+                    <div class="theme-card" style="background:linear-gradient(135deg,#ff8c00,#ff0080)" onclick="setTheme('#ff8c00')"></div>
+                    <div class="theme-card" style="background:linear-gradient(135deg,#1f1c2c,#928dab)" onclick="setTheme('#928dab')"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Custom Theme Color</h3>
+                <input type="color" onchange="setTheme(this.value)">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+window.onload = function() {
+    setTimeout(() => {
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("app").style.display = "flex";
+    }, 5000);
+};
+
+function showSection(id) {
+    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+function updateUsername() {
+    const name = document.getElementById("usernameInput").value;
+    if(name.trim() !== "") {
+        document.getElementById("welcomeText").innerText = "Hey, " + name;
+    }
+}
+
+function setTheme(color) {
+    document.documentElement.style.setProperty('--primary', color);
+}
+
+function joinDiscord() {
+    const link = document.getElementById("discordLink").value;
+    if(link.startsWith("http")) {
+        window.open(link, "_blank");
+    } else {
+        alert("Please enter a valid Discord invite link.");
+    }
+}
+</script>
+
+</body>
+</html>

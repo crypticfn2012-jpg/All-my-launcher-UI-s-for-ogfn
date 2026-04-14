@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OGFN Launcher</title>
+
+<style>
+:root {
+    --primary: #7b4dff;
+    --secondary: #5a2eff;
+    --bg-dark: #1e1e2f;
+    --card-bg: #2a2a40;
+    --text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-dark), var(--primary));
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+}
+
+
+.sidebar {
+    width: 220px;
+    background: rgba(0,0,0,0.3);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: var(--primary);
+}
+
+
+.main {
+    flex: 1;
+    padding: 40px;
+}
+
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/* Theme Grid */
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.theme-card {
+    height: 80px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 3px solid transparent;
+}
+
+.theme-card:hover {
+    transform: scale(1.05);
+    border: 3px solid white;
+}
+
+
+.section {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>OGFN</h2>
+    <button class="nav-btn" onclick="showSection('home')"> Home</button>
+    <button class="nav-btn" onclick="showSection('library')"> Library</button>
+    <button class="nav-btn" onclick="showSection('settings')"> Settings</button>
+</div>
+
+<div class="main">
+
+  
+    <div id="home" class="section active">
+        <h1 id="welcomeText">Welcome back, Player</h1>
+        <div class="card">
+            <h3>Latest News</h3>
+            <p>OGFN launcher UI concept design.</p>
+        </div>
+    </div>
+
+ 
+    <div id="library" class="section">
+        <h1>Your Library</h1>
+        <div class="card">
+            <h3></h3>
+            <p>Status: UWU XX</p>
+            <button class="btn">Launch</button>
+        </div>
+    </div>
+
+    
+    <div id="settings" class="section">
+        <h1>Settings</h1>
+
+        <div class="card">
+            <h3>Change Username</h3>
+            <input type="text" id="usernameInput" placeholder="Enter new username">
+            <button class="btn" onclick="updateUsername()">Save</button>
+        </div>
+
+        <div class="card">
+            <h3>Theme Presets</h3>
+            <div class="theme-grid">
+                <div class="theme-card" style="background: linear-gradient(135deg,#7b4dff,#5a2eff)" onclick="setTheme('#7b4dff','#5a2eff')"></div>
+                <div class="theme-card" style="background: linear-gradient(135deg,#00c6ff,#0072ff)" onclick="setTheme('#00c6ff','#0072ff')"></div>
+                <div class="theme-card" style="background: linear-gradient(135deg,#00b09b,#96c93d)" onclick="setTheme('#00b09b','#96c93d')"></div>
+                <div class="theme-card" style="background: linear-gradient(135deg,#ff416c,#ff4b2b)" onclick="setTheme('#ff416c','#ff4b2b')"></div>
+                <div class="theme-card" style="background: linear-gradient(135deg,#ff8c00,#ff0080)" onclick="setTheme('#ff8c00','#ff0080')"></div>
+                <div class="theme-card" style="background: linear-gradient(135deg,#1f1c2c,#928dab)" onclick="setTheme('#1f1c2c','#928dab')"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Custom Theme Color</h3>
+            <input type="color" id="colorPicker" onchange="customColor(this.value)">
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+}
+
+function updateUsername() {
+    const newName = document.getElementById("usernameInput").value;
+    if(newName.trim() !== "") {
+        document.getElementById("welcomeText").innerText = "Welcome back, " + newName;
+    }
+}
+
+function setTheme(primary, secondary) {
+    document.documentElement.style.setProperty('--primary', primary);
+    document.documentElement.style.setProperty('--secondary', secondary);
+}
+
+function customColor(color) {
+    document.documentElement.style.setProperty('--primary', color);
+}
+</script>
+
+</body>
+</html>
